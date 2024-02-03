@@ -8,12 +8,15 @@
 </head>
 
 <body>
-    <!-- <form action="index.php" method="post">
-        <input type="checkbox" name="pizza" value="Pizza">Pizza<br>
-        <input type="checkbox" name="hamburger" value="Hamburger">Hamburger<br>
-        <input type="checkbox" name="hotdog" value="Hotdog">Hot Dog<br>
-        <input type="submit" name="submit" value="Submit">
-    </form> -->
+    <form action="index.php" method="post">
+        <label for="username">Username:</label><br>
+        <input type="text" name="username"><br>
+        <label for="age">Age:</label><br>
+        <input type="text" name="age"><br>
+        <label for="email">E-mail:</label><br>
+        <input type="text" name="email"><br><br>
+        <input type="submit" name="login" value="Log in"><br>
+    </form>
 </body>
 
 </html>
@@ -21,22 +24,40 @@
 
 <?php
 
-function hypotenuse($a, $b)
-{
-    $c = sqrt($a ** 2 + $b ** 2);
-    return $c;
+if (isset($_POST["login"])) {
+    $username = filter_input(
+        INPUT_POST,
+        "username",
+        FILTER_SANITIZE_SPECIAL_CHARS
+    );
+    $age = filter_input(
+        INPUT_POST,
+        "age",
+        FILTER_SANITIZE_NUMBER_INT
+    );
+    $email = filter_input(
+        INPUT_POST,
+        "email",
+        FILTER_SANITIZE_EMAIL
+    );
 }
-echo hypotenuse(3, 4);
 
-function happy_birthday($first_name, $age)
-{
-    echo "Happy Birthday to you! <br>";
-    echo "Happy Birthday to you! <br>";
-    echo "Happy Birthday dear {$first_name}! <br>";
-    echo "You are {$age} years old <br>";
-}
+// function hypotenuse($a, $b)
+// {
+//     $c = sqrt($a ** 2 + $b ** 2);
+//     return $c;
+// }
+// echo hypotenuse(3, 4);
 
-happy_birthday("Janka", 29);
+// function happy_birthday($first_name, $age)
+// {
+//     echo "Happy Birthday to you! <br>";
+//     echo "Happy Birthday to you! <br>";
+//     echo "Happy Birthday dear {$first_name}! <br>";
+//     echo "You are {$age} years old <br>";
+// }
+
+// happy_birthday("Janka", 29);
 
 // if (isset($_POST["submit"])) {
 
