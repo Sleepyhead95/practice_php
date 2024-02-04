@@ -23,7 +23,7 @@
 
 
 <?php
-
+// SANITIZATION
 if (isset($_POST["login"])) {
     $username = filter_input(
         INPUT_POST,
@@ -40,6 +40,16 @@ if (isset($_POST["login"])) {
         "email",
         FILTER_SANITIZE_EMAIL
     );
+}
+//VALIDATION
+if (isset($_POST["login"])) {
+    $age = filter_input(INPUT_POST, "age", FILTER_VALIDATE_INT);
+    $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
+    if (empty($age)) {
+        echo "Age is required";
+    } else {
+        echo "Age is valid";
+    }
 }
 
 // function hypotenuse($a, $b)
