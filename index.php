@@ -1,9 +1,19 @@
 <?php
 
+// setting up cookies
+setcookie("fav_food", "pizza", time() + 86400, "/");
+setcookie("fav_color", "blue", time() + 86400 * 2, "/");
+foreach ($_COOKIE as $key => $value) {
+    echo "{$key} = {$value} <br>";
+}
+?>
+
+<?php
+
 include("header.html");
 ?>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -17,7 +27,7 @@ include("header.html");
 
 </body>
 
-</html>
+</html> -->
 
 <?php
 
